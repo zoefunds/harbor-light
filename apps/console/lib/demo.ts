@@ -1,0 +1,11 @@
+export const DEMO_ORIGIN="https://console-phi-henna.vercel.app";
+export const DEMO_HTML='<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Harborlight Demo Release</title></head><body><main><h1>Harborlight Demo Release</h1><p>This public release preserves secure navigation, accessible content, working actions, and the published Harborlight test promise.</p><a href="/voyages/new">Start a voyage</a></main></body></html>';
+export const DEMO_BODY_DIGEST="09e5f98f2839dc5df6f413de8e1f7e8ff202fcfc8a3a9d6be93ff4e6a79d0703";
+export const DEMO_INDEX={routes:[{critical:true,path:"/demo/release"}]};
+export const DEMO_INDEX_DIGEST="3d69b859ee289812ab9223d8a3d014a0beaf16efec9f07871243f328f95b84a0";
+export const DEMO_CAPSULE={captured_at:"2026-10-07T00:00:00Z",content_sha256:DEMO_BODY_DIGEST,media_type:"text/html; charset=utf-8",route_id:"release-home",source_url:`${DEMO_ORIGIN}/demo/release`};
+export const DEMO_CAPSULE_DIGEST="dbab2e546235783893294d8b181154cfd5acf6101db445f5c7ac26befce69c7b";
+export const DEMO_MANIFEST={candidate_origin:DEMO_ORIGIN,protocol_id:"harborlight.release-notary.v1",release_ref:"harborlight-demo-v1",route_index_digest:DEMO_INDEX_DIGEST,routes:[{body_sha256:DEMO_BODY_DIGEST,path:"/demo/release"}],schema:"harborlight.manifest.v1"};
+export const DEMO_MANIFEST_DIGEST="c4b2622aee34d2228da7d0eeab59f191b5f24a7c8c891804970d1ccf50750da1";
+export const DEMO_RULES=JSON.stringify([{id:"demo-promise",question:"Does the page continue to state that the public release preserves secure navigation, accessible content, working actions, and the Harborlight test promise?",allowed_changes:"Wording may change only when all four commitments retain the same meaning."}],null,2);
+export const DEMO_INPUTS={title:"Harborlight public demo",origin:DEMO_ORIGIN,indexUrl:`${DEMO_ORIGIN}/.well-known/harborlight-routes.json`,windowSeconds:"600",routeId:"release-home",path:"/demo/release",rules:DEMO_RULES,artifact:`${DEMO_ORIGIN}/demo/baseline-capsule.json`,indexDigest:DEMO_INDEX_DIGEST,capsuleDigest:DEMO_CAPSULE_DIGEST,candidate:DEMO_ORIGIN,manifestDigest:DEMO_MANIFEST_DIGEST,evidence:`${DEMO_ORIGIN}/demo/counter-evidence.txt`};

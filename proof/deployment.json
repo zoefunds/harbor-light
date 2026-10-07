@@ -1,0 +1,14 @@
+{
+  "network": "GenLayer Studionet",
+  "chain_id": 61999,
+  "deployer_account": "origin-trace-e2e-3",
+  "contract_address": "0x955AA2ee4e159710AC5a45B02824d272A662c6f1",
+  "deployment_transaction": "0x7ff46ecedbf9aab0b3f71c9f07ab28cda5a6cf05b31119cd833b1b08836be2c6",
+  "deployment_status": "FINALIZED",
+  "consensus": "MAJORITY_AGREE",
+  "validator_votes": {"agree": 5, "disagree": 0},
+  "contract_source_sha256": "6ade59af3c5cd086ab303f2345d36ec8ab06f021df52c29e32615b196680868c",
+  "protocol_id": "harborlight.release-notary.v1",
+  "protocol_version": 1,
+  "deployed_at": "2026-10-07"
+}

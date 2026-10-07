@@ -1,0 +1,1 @@
+export function GET(){return new Response("Verify the demo-promise rule against the freshly fetched candidate. The page must still communicate secure navigation, accessible content, working actions, and the Harborlight test promise.",{headers:{"content-type":"text/plain; charset=utf-8","cache-control":"public, max-age=0, must-revalidate"}})}
