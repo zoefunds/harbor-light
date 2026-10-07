@@ -1,0 +1,11 @@
+node_modules
+.next
+dist
+!packages/verify/dist/
+!packages/verify/dist/**
+.env.local
+__pycache__
+.pytest_cache
+*.pyc
+*.tsbuildinfo
+artifacts

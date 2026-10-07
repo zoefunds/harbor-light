@@ -1,0 +1,1 @@
+{"name":"@harborlight/verify","private":true,"type":"module","main":"dist/index.js","scripts":{"build":"tsc --noEmit && ncc build src/index.ts -o dist --minify","typecheck":"tsc --noEmit","test":"vitest run"},"dependencies":{"@actions/core":"^3.0.1","genlayer-js":"1.1.8"},"devDependencies":{"@types/node":"22.15.3","@vercel/ncc":"^0.38.4","typescript":"5.8.3","vitest":"3.2.4"}}

@@ -1,0 +1,13 @@
+name: Harborlight release gate
+on: {workflow_dispatch: {}}
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./packages/verify
+        with:
+          contract-address: ${{ vars.HARBORLIGHT_CONTRACT }}
+          expected-contract-source-sha256: ${{ vars.HARBORLIGHT_SOURCE_SHA256 }}
+          voyage-id: ${{ vars.HARBORLIGHT_VOYAGE_ID }}
+          expected-release-ref: ${{ github.sha }}
