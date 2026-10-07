@@ -41,7 +41,7 @@ The supported network is GenLayer Studionet (chain `61999`). No private key or s
 
 ## Live deployment
 
-- Console: https://console-phi-henna.vercel.app
+- Console: https://harbor-light-app.vercel.app
 - Studionet contract: `0x955AA2ee4e159710AC5a45B02824d272A662c6f1`
 - Deployment transaction: `0x7ff46ecedbf9aab0b3f71c9f07ab28cda5a6cf05b31119cd833b1b08836be2c6`
 - Deployed source SHA-256: `6ade59af3c5cd086ab303f2345d36ec8ab06f021df52c29e32615b196680868c`
