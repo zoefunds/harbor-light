@@ -1,95 +1,60 @@
 {
   "run_date": "2026-10-11",
+  "record_status": "CURRENT",
   "network": "GenLayer Studionet",
   "chain_id": 61999,
   "application_url": "https://harbor-light-app.vercel.app",
-  "contract_address": "0x892a229Ef258666B22aBA4c72C25AA98070BFbC0",
-  "contract_deployment_transaction": "0x35f8855fe046338ae22c6a17fd11ca1fb5260955ac67bb629d2d23a0df32d952",
-  "contract_source_sha256": "f147b8e14ce60377042e1e58f783c8b858508e43f332fb81053456b89d5e00bf",
-  "evidence": {
-    "route_index_url": "https://harbor-light-app.vercel.app/.well-known/harborlight-routes.json",
-    "route_index_digest": "3d69b859ee289812ab9223d8a3d014a0beaf16efec9f07871243f328f95b84a0",
-    "baseline_capsule_url": "https://harbor-light-app.vercel.app/demo/baseline-capsule.json",
-    "baseline_capsule_digest": "90e45abe631be2222e2685854eeafe865cc2c16fdeb377f66b7e7496f5eb37bf",
-    "candidate_manifest_url": "https://harbor-light-app.vercel.app/.well-known/harborlight.json",
-    "candidate_manifest_digest": "ab13e1c145733dd66278e2c221976f47c9c22439be3af9409a558db7ae1b9406",
-    "candidate_body_sha256": "09e5f98f2839dc5df6f413de8e1f7e8ff202fcfc8a3a9d6be93ff4e6a79d0703"
+  "contract": {
+    "address": "0xB43ad8c26BCD23927Ff46CA849b0a5FaeBc520e6",
+    "deployment_transaction": "0xafb5078d74565c5d506f3bc457332376f80e53c0990825787cad5b85b66efbf9",
+    "deployment_status": "FINALIZED",
+    "source_sha256": "25e32457c402de8c19ec41ca5a0c3d8198862a39e3ed731cbdc65afa55ee857d",
+    "protocol_id": "harborlight.release-notary.v2",
+    "protocol_version": 2
   },
-  "scenarios": [
+  "evidence": {
+    "inventory_url": "https://harbor-light-app.vercel.app/.well-known/harborlight-inventory.json",
+    "inventory_digest": "17d737351134bdf10024e4789e19fe8895b0d0d63f238bf0af6dfa069e412a3e",
+    "route_index_url": "https://harbor-light-app.vercel.app/.well-known/harborlight-routes.json",
+    "route_index_digest": "83881b7c859d1e002b5b7cb289e9cea76a48552b075c50b3e7deb0b806a49c8e",
+    "baseline_capsule_url": "https://harbor-light-app.vercel.app/demo/baseline-capsule.json",
+    "candidate_manifest_url": "https://harbor-light-app.vercel.app/.well-known/harborlight.json",
+    "candidate_manifest_digest": "f940fbbc7b7247b3131ae23adaf6e44327eb20d290c8f7da280b73001dd3eff8",
+    "candidate_route_url": "https://harbor-light-app.vercel.app/demo/release",
+    "candidate_body_sha256": "09e5f98f2839dc5df6f413de8e1f7e8ff202fcfc8a3a9d6be93ff4e6a79d0703",
+    "counter_evidence_url": "https://harbor-light-app.vercel.app/demo/counter-evidence.txt"
+  },
+  "finalized_scenario": {
+    "voyage_id": 1,
+    "title": "Harborlight v2 Complete Finalized Authorization — October 2026",
+    "release_ref": "harborlight-demo-v2",
+    "generation": 1,
+    "route_id": "release-home",
+    "route_path": "/demo/release",
+    "aggregate": "CLEAR",
+    "open_dispute": 0,
+    "challenge_resolution": "REFUTED",
+    "state": "NOTARIZED",
+    "final_observation_digest": "8db4e0df1209ca976452a41c400308d0ad6dbc8b275eee714f744c09a285dd9f",
+    "freshness_root": "0fe4903a5ce210d8e4b36d59fc4cd9c2862ce90d7de34c0ec5e28f4c85454e51",
+    "notarization_digest": "77ee42c9cc798b8ba55972b26b15d630bd726ef7272a855c9e024fbf520536ee",
+    "transaction_evidence": "proof/hardening-v2-2026-10-11.json"
+  },
+  "three_layer_end_to_end_verification": [
     {
-      "voyage_id": 1,
-      "title": "Harborlight Accessibility Assurance — October 2026",
-      "custom_rule": "wcag-navigation",
-      "transactions": {
-        "open": "0xb73b47a775c4b84877eaa403d60bb0a18fcbd74cef7249090600cc3a9caa3380",
-        "discover": "0x7af6e9eb88e84252ddc1eaeb6689d6e85c729382fd14fb91c8e73c7c3bbcc6f7",
-        "add_route": "0x1c8db933b4a97c50c3f896c2a2fd2c2fd9220eb3eb809e73fb9dc2b0ea23c20f",
-        "anchor": "0xf0da52a6a3a8c78dcca1729c228584e917a3c3de6d59ce8bf64891049cdebab7",
-        "seal": "0x263454c29300ecbb060f69d71a0c4d8acaa40be4b676322cfd1acb75ff59936a",
-        "bind": "0xa53b04bab580665a9d942b6f92606c05fc1014543f7a8301f9c2e4a134401035",
-        "observe": "0xfd3e2afe22d0b545302177cd0531f184b05340f4cfda2e6a8aad4c25bc6ea604",
-        "derive": "0xcd347add79156257ec1454c3704460fe45422d52411a23e0c01438e80f0dbdc2"
-      },
-      "result": "CLEAR",
-      "identity_ok": true,
-      "rule_statuses": ["hl-security:PRESERVED", "hl-function:PRESERVED", "hl-claims:PRESERVED", "hl-access:PRESERVED", "wcag-navigation:PRESERVED"],
-      "observation_digest": "740d5b75e5a7e5e93ffc199e1fc63028ae5c6d7feb8c3b24ede90b3b14687904"
+      "section": "contract_and_consensus",
+      "result": "PASS",
+      "details": "GenVM v0.2.16 lint and validation passed; 21 direct tests passed; finalized chain reads returned protocol v2, CLEAR aggregate, generation 1, no open dispute, and NOTARIZED state."
     },
     {
-      "voyage_id": 2,
-      "title": "Harborlight Security and Form Integrity Review — October 2026",
-      "custom_rule": "safe-primary-action",
-      "transactions": {
-        "open": "0x8f6a2fa062cd4e68eec5c30a7642b7ad5f259d71c4e4242889c1a39a42106aed",
-        "discover": "0x5db5259afeccbfd058c3c2ab27c088dee335fc12f2279b7015d432cd0c15d32c",
-        "add_route": "0x07c644aa2b2d5dd1a72cfbe2b9768a0520972f2ae243f1b376f8cb8c575d7567",
-        "anchor": "0x2ba7f7fac80b0fb0dade5d1570597ca32eef5508c60c2341f761e3aa0275dbf9",
-        "seal": "0x635c598ad8b88821574113e5036cefc5a9d65fe2aa48356ee79248b42c4810ee",
-        "bind": "0x880ccb660094f08643be25ceafa7fd1e1b7017ae19256ee4a0c5e4f6b40f57e5",
-        "observe": "0x9571f856f48ca6f282e75da411817e28e1298dda3a2112227c34d6fd345eff3e",
-        "derive": "0x1691aa8239eeee209e4e20c543f78a97973f164e09203a95c372f7c44189e18f"
-      },
-      "result": "CLEAR",
-      "identity_ok": true,
-      "rule_statuses": ["hl-security:PRESERVED", "hl-function:PRESERVED", "hl-claims:PRESERVED", "hl-access:PRESERVED", "safe-primary-action:PRESERVED"],
-      "observation_digest": "7923c890d1b10ef97b85a60f7dee960b381e2cf33885a56ce5b4951e7a6d943d"
+      "section": "frontend_and_operator_state",
+      "result": "PASS",
+      "details": "Four console tests passed, TypeScript passed, and the production build generated all 11 application routes. Wallet writes require FINALIZED receipts followed by method-specific authoritative contract-state verification."
     },
     {
-      "voyage_id": 3,
-      "title": "Harborlight Public Claims Continuity Audit — October 2026",
-      "custom_rule": "demo-promise",
-      "transactions": {
-        "open": "0x1c3ea199151227e1b8e47e56cced5ad446921e516cd2d70ba37faff39904622f",
-        "discover": "0x92f3cb591a82a4b4c46906da4ece25c6eec92163ebe31eb36fb682128eb7a4f4",
-        "add_route": "0xc51d5221a86ddf54f24ab9deaa2303eaeaeb3728deea2fedf5fda624fe4c66df",
-        "anchor": "0xc272b68a530a46b57637bc5a8f15d1a8058de49eefda421814043883f3c4ca28",
-        "seal": "0x779a91bc23f6e6307541a9c413e8cbe92345be26057bdccbf04788b3041d5f9d",
-        "bind": "0xf64acd0db0fa0ae653a8b2839265c43eca649a4bf650a987426b4cdb89096935",
-        "observe": "0xab61350dfb7e17e9187f1556ea163aeef0931073a6aeefe4e806cc56de593d23",
-        "derive": "0xea061ff4f79a074b4317cc29e24f39b1b52ab5a0f14f4b9b8fef594be7550a72",
-        "open_dispute": "0x82151057d98fd8a7c844370fe2e1b86e109b8da6e79fd0869c52ee447c97a1f5",
-        "reassess": "0xf9863f44b8590b1bc338d96b73a03a314e7cb67e10089c8a3be8c2d117fad83a",
-        "final_derive": "0x79650b43f182f5ac149cf59b2c41aa0e82d7d7a632624aac8fb048a23925c2f5"
-      },
-      "result": "CLEAR",
-      "identity_ok": true,
-      "dispute": {
-        "challenger": "0x1ADd10608F0c52EECa68Ba4e5795817828f184a0",
-        "evidence_digest": "226d1286bd60ccc317ae57bc14e0966b73cdb5ec45ed78c72426f692f9bf35a9",
-        "target": "demo-promise",
-        "resolution": "REFUTED",
-        "resolved": true,
-        "causal_observation_digest": "513416a6c81035290c265f4ac1603b51ae22f29c6690eb1ccd85d7b35b18a14c"
-      },
-      "rule_statuses": ["hl-security:PRESERVED", "hl-function:PRESERVED", "hl-claims:PRESERVED", "hl-access:PRESERVED", "demo-promise:PRESERVED"]
+      "section": "deployment_gate_and_live_content",
+      "result": "PASS",
+      "details": "Seven verifier tests passed. The packaged verifier independently matched deployed source identity, finalized state, live inventory, live manifest, current route bytes, freshness root, and notarization digest. Incorrect source identity and modified release commitments fail closed."
     }
-  ],
-  "production_ui": {
-    "home": "PASS",
-    "launchpad_four_stage_autofill": "PASS",
-    "voyage_index_three_clear_records": "PASS",
-    "voyage_1_dashboard": "PASS",
-    "voyage_2_dashboard": "PASS",
-    "voyage_3_dashboard": "PASS"
-  }
+  ]
 }

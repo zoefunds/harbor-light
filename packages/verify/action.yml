@@ -1,8 +1,8 @@
 name: Harborlight release seal
 description: Verify contract identity, finalized notarization, live bytes, and canonical commitments
 inputs:
-  contract-address: {description: Studionet contract address, required: true}
-  expected-contract-source-sha256: {description: SHA-256 of the exact deployed Intelligent Contract source, required: true}
-  voyage-id: {description: Voyage identifier, required: true}
-  expected-release-ref: {description: Exact source revision being deployed, required: true}
+  contract-address: {description: "Studionet Intelligent Contract address; current deployment is 0xB43ad8c26BCD23927Ff46CA849b0a5FaeBc520e6", required: true}
+  expected-contract-source-sha256: {description: "SHA-256 of exact deployed source; current deployment is 25e32457c402de8c19ec41ca5a0c3d8198862a39e3ed731cbdc65afa55ee857d", required: true}
+  voyage-id: {description: "Finalized voyage identifier; current demonstration is 1", required: true}
+  expected-release-ref: {description: "Exact notarized release reference; current demonstration is harborlight-demo-v2", required: true}
 runs: {using: node24, main: dist/index.js}
