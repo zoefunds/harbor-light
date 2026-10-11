@@ -10,7 +10,17 @@ def test_all_five_consensus_boundaries_exist():
 def test_protocol_policies_are_mandatory():
     for rule in ("hl-security","hl-function","hl-claims","hl-access"):
         assert rule in SOURCE
-    assert "critical route coverage incomplete" in SOURCE
+    assert "authoritative route coverage incomplete" in SOURCE
+
+def test_semantic_inspection_is_derived_from_committed_bytes_only():
+    assert "gl.nondet.web.render" not in SOURCE
+    assert '"assessed_body_sha256":digest' in SOURCE
+    assert '"INSPECTION_LIMIT_EXCEEDED"' in SOURCE
+
+def test_authoritative_inventory_and_unique_paths_are_enforced():
+    assert 'harborlight.inventory.v1' in SOURCE
+    assert 'set(inventory_paths)=={x["path"] for x in normalized}' in SOURCE
+    assert 'path in registered_paths' in SOURCE
 
 def test_counter_evidence_is_causal_input():
     assert "COUNTER_EVIDENCE:" in SOURCE

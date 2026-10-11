@@ -2,7 +2,7 @@ import * as core from "@actions/core";
 import {createClient} from "genlayer-js";
 import {studionet} from "genlayer-js/chains";
 import {TransactionHashVariant,type CalldataEncodable} from "genlayer-js/types";
-import {assertIdentity,assertState,verifyCommitments,type Identity,type Manifest,type Notarization,type Voyage} from "./check.js";
+import {assertIdentity,assertState,verifyCommitments,type Identity,type Inventory,type Manifest,type Notarization,type Voyage} from "./check.js";
 
 async function main(){
   const address=core.getInput("contract-address",{required:true}) as `0x${string}`;
@@ -17,9 +17,10 @@ async function main(){
     read("get_notarization",[id]) as Promise<Notarization>,client.getContractCode(address),
   ]);
   assertIdentity(identity,deployedSource,expectedSource);assertState(voyage,notarization,expectedRef);
-  const manifestRes=await fetch(voyage.manifest_url,{redirect:"error"});
+  const [manifestRes,inventoryRes]=await Promise.all([fetch(voyage.manifest_url,{redirect:"error"}),fetch(voyage.inventory_url,{redirect:"error"})]);
   if(!manifestRes.ok)throw new Error(`live manifest unavailable: ${manifestRes.status}`);
-  const manifest=await manifestRes.json() as Manifest;
+  if(!inventoryRes.ok)throw new Error(`live route inventory unavailable: ${inventoryRes.status}`);
+  const manifest=await manifestRes.json() as Manifest;const inventory=await inventoryRes.json() as Inventory;
   const bodies=new Map<string,Uint8Array>();
   await Promise.all(notarization.seal.routes.map(async route=>{
     const response=await fetch(voyage.candidate_origin+route.path,{redirect:"error"});
@@ -28,7 +29,7 @@ async function main(){
     if(bytes.byteLength>64000)throw new Error(`live route too large: ${route.path}`);
     bodies.set(route.path,bytes);
   }));
-  verifyCommitments(voyage,notarization,manifest,bodies);
+  verifyCommitments(voyage,notarization,manifest,inventory,bodies);
   core.setOutput("notarization-digest",notarization.notarization_digest);
   core.info(`Harborlight verified ${expectedRef}: source identity, finalized state, live bytes, and commitments match.`);
 }

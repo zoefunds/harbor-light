@@ -1,11 +1,11 @@
 # Consensus boundary
 
-Harborlight uses five custom leader/validator flows. Every validator independently repeats retrieval and interpretation, then compares the complete consequential payload by canonical JSON.
+Harborlight uses six custom leader/validator flows. Every validator independently repeats retrieval and interpretation, then compares the complete consequential payload by canonical JSON.
 
 | Flow | Consensus work | Deterministic consequence |
 |---|---|---|
-| Chart discovery | Fetch and normalize the public route index; classify critical surface | Exact route-set commitment and minimum coverage |
-| Baseline anchoring | Fetch baseline and capsule; judge faithful representation | Immutable baseline and probe digests |
+| Chart discovery | Fetch the public route index and fixed framework inventory; require exact route-set equality | Exact inventory and route-set commitments; complete coverage |
+| Baseline anchoring | Fetch baseline bytes and capsule; derive inspection from those bytes; judge faithful representation | Immutable baseline, assessed-byte, and probe digests |
 | Candidate binding | Fetch and validate same-origin manifest | New generation and exact route hashes |
 | Observation / dispute | Re-fetch candidate, compare obligations, test admitted counterclaim | Rule statuses and route outcome |
 | Final seal | After review, re-fetch manifest and all route bytes | Freshness root and notarization, or fail closed |

@@ -1,0 +1,58 @@
+{
+  "run_date": "2026-10-11",
+  "network": "GenLayer Studionet",
+  "chain_id": 61999,
+  "application_url": "https://harbor-light-app.vercel.app",
+  "contract": {
+    "address": "0xB43ad8c26BCD23927Ff46CA849b0a5FaeBc520e6",
+    "deployment_transaction": "0xafb5078d74565c5d506f3bc457332376f80e53c0990825787cad5b85b66efbf9",
+    "source_sha256": "25e32457c402de8c19ec41ca5a0c3d8198862a39e3ed731cbdc65afa55ee857d",
+    "protocol_id": "harborlight.release-notary.v2",
+    "version": 2
+  },
+  "authoritative_scope": {
+    "scope": "Static HTML release handlers under apps/console/app/demo",
+    "generator": "apps/console/scripts/generate-inventory.mjs",
+    "inventory_url": "https://harbor-light-app.vercel.app/.well-known/harborlight-inventory.json",
+    "inventory_digest": "17d737351134bdf10024e4789e19fe8895b0d0d63f238bf0af6dfa069e412a3e",
+    "route_index_digest": "83881b7c859d1e002b5b7cb289e9cea76a48552b075c50b3e7deb0b806a49c8e",
+    "manifest_digest": "f940fbbc7b7247b3131ae23adaf6e44327eb20d290c8f7da280b73001dd3eff8",
+    "candidate_body_sha256": "09e5f98f2839dc5df6f413de8e1f7e8ff202fcfc8a3a9d6be93ff4e6a79d0703"
+  },
+  "finalized_workflow": {
+    "voyage_id": 1,
+    "title": "Harborlight v2 Complete Finalized Authorization — October 2026",
+    "transactions": {
+      "open_voyage": "0xe89d161913205ad8b3f3b8199460c9edd9140b8d4d0cd90ae8fcc971624da3b6",
+      "discover_chart": "0xc40465a5ae7e415cf6ea0187699e8e44fe75dd940cc9795aa2c6956213c3d371",
+      "add_route": "0x4bc59aeea73f1a4bfe97fc8a8073ed4aabea1c5d9c869eba7ac8c014f353ee44",
+      "anchor_baseline": "0x1ad4748e6443fef1075743cbe9c71d26da3aa466cdddb60d8742b3966c42760a",
+      "seal_chart": "0xaec6f376ab5d90d3c7ede4771daeae82ad86a602719d6ef3efb05bc2dccc144e",
+      "bind_candidate": "0x8e17033893a5666cf53d6e702448d3b1b8ca5d4f4bbba8217b484e09f1914693",
+      "observe_route": "0xe0024bccfe7d31f40e1131f30daa6cbfac974773ab80e92c5ba3d5e23cd5fe29",
+      "derive_readiness": "0xb6ba87ee92a8547a26c0ee48bef2d3d2c28482ed64cb43c1aec02c38837910ba",
+      "open_dispute": "0x54a4a6aacc9895a6d1f53f347ee63954a584b8268d4ba1fa9e6acd7594a08ac2",
+      "reassess_dispute": "0xbedd8f5aa50c70d0e0d68ccaeac7205ef6f5b4881ce16f7fd48cecfd3286beb5",
+      "post_dispute_derive": "0x8ee3f8c4c8491b8dae4a65dafddfafbe006faf3100b6a83426608966ed829585",
+      "notarize": "0xd9ad9e64aa69f45a7a0aa31ac73995aa06c0594ebefec8ec27d43c5d36438738"
+    },
+    "challenge_resolution": "REFUTED",
+    "final_observation_digest": "8db4e0df1209ca976452a41c400308d0ad6dbc8b275eee714f744c09a285dd9f",
+    "review_seconds": 600,
+    "final_state": "NOTARIZED",
+    "freshness_root": "0fe4903a5ce210d8e4b36d59fc4cd9c2862ce90d7de34c0ec5e28f4c85454e51",
+    "notarization_digest": "77ee42c9cc798b8ba55972b26b15d630bd726ef7272a855c9e024fbf520536ee"
+  },
+  "verification": {
+    "genvm_lint": "PASS",
+    "contract_tests": "21 passed",
+    "console_tests": "4 passed",
+    "verifier_tests": "7 passed",
+    "typecheck": "PASS",
+    "production_builds": "PASS",
+    "live_ci_verifier": "PASS: source identity, finalized state, live inventory, manifest, bytes, and commitments match",
+    "wrong_source_identity_mutation": "BLOCKED: deployed contract source identity mismatch",
+    "modified_content_mutation": "BLOCKED by verifier current-byte drift test and contract post-assessment freshness test",
+    "production_dashboard": "PASS: voyage 1 visibly reports NOTARIZED"
+  }
+}
