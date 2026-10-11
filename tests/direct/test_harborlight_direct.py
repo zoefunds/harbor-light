@@ -42,6 +42,13 @@ def test_public_chart_enforces_critical_coverage(direct_vm,direct_deploy):
     c=direct_deploy(CONTRACT); vid=c.open_voyage("Docs",BASE,INDEX_URL,600); mock_chart(direct_vm); c.discover_chart(vid,digest(route_index()))
     with direct_vm.expect_revert("critical route coverage incomplete"): c.seal_chart(vid)
 
+def test_native_rule_array_is_accepted_for_sdk_and_cli_callers(direct_vm,direct_deploy):
+    c=direct_deploy(CONTRACT); vid=c.open_voyage("SDK-native rules",BASE,INDEX_URL,600); mock_chart(direct_vm); c.discover_chart(vid,digest(route_index()))
+    native=[{"id":"price","question":"Is the $49 monthly price preserved?","allowed_changes":"Equivalent formatting is allowed."}]
+    c.add_route(vid,"pricing","/pricing",native)
+    route=c.get_route(vid,"pricing")
+    assert route["route_id"]=="pricing" and [x["id"] for x in route["rules"]][-1]=="price"
+
 def test_clear_route_requires_mandatory_and_custom_findings(direct_vm,direct_deploy):
     c=direct_deploy(CONTRACT); vid=charted(direct_vm,c); direct_vm.clear_mocks(); man=mock_candidate(direct_vm); c.bind_candidate(vid,CANDIDATE,digest(man)); direct_vm.clear_mocks(); mock_candidate(direct_vm,statuses={})
     assert c.observe_route(vid,"pricing")=="CLEAR"; assert c.derive_readiness(vid)=="CLEAR"; assert c.get_voyage(vid)["review_deadline"]>0
@@ -53,8 +60,8 @@ def test_material_mandatory_failure_holds_voyage(direct_vm,direct_deploy):
 def test_admitted_counterclaim_causally_holds_route(direct_vm,direct_deploy,direct_bob):
     c=direct_deploy(CONTRACT); vid=charted(direct_vm,c); direct_vm.clear_mocks(); man=mock_candidate(direct_vm); c.bind_candidate(vid,CANDIDATE,digest(man)); direct_vm.clear_mocks(); mock_candidate(direct_vm,statuses={}); c.observe_route(vid,"pricing"); c.derive_readiness(vid)
     direct_vm.sender=direct_bob; direct_vm.clear_mocks()
-    direct_vm.mock_web(r".*evidence\.test/counterclaim.*",{"status":200,"body":"The join form sends credentials to an unrelated host."})
-    direct_vm.mock_llm(r".*Normalize relevant counter-evidence.*",json.dumps({"relevant":True,"target":"hl-security","assertion":"The form target is unsafe","expected_observation":"A cross-origin form action"}))
+    evidence={"target":"hl-security","assertion":"The form target is unsafe","expected_observation":"A cross-origin form action"}
+    direct_vm.mock_web(r".*evidence\.test/counterclaim.*",{"status":200,"body":json.dumps(evidence)})
     assert c.open_dispute(vid,"pricing","https://evidence.test/counterclaim")==1
     direct_vm.clear_mocks(); mock_candidate(direct_vm,statuses={},counter="SUPPORTED")
     assert c.observe_route(vid,"pricing")=="HELD"
