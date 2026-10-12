@@ -1,8 +1,9 @@
 import {createClient} from "genlayer-js";
 import {studionet} from "genlayer-js/chains";
 import {TransactionHashVariant,TransactionStatus,type CalldataEncodable,type TransactionHash} from "genlayer-js/types";
+import {connectStudionet,injectedProvider,requestAccount,STUDIONET_CHAIN_ID} from "./network";
 export const ADDRESS=process.env.NEXT_PUBLIC_HARBORLIGHT_CONTRACT as `0x${string}`|undefined;
-export const CHAIN={id:61999,name:"GenLayer Studionet",explorer:"https://explorer-studio.genlayer.com"};
+export const CHAIN={id:STUDIONET_CHAIN_ID,name:"GenLayer Studionet",explorer:"https://explorer-studio.genlayer.com"};
 const client=createClient({chain:studionet});
 export async function read(functionName:string,args:CalldataEncodable[]=[]){if(!ADDRESS)throw new Error("Contract address is not configured");return client.readContract({address:ADDRESS,functionName,args,transactionHashVariant:TransactionHashVariant.LATEST_FINAL});}
 type Snapshot={count?:number;generation?:number;attempt?:number};
@@ -32,4 +33,4 @@ async function postcondition(name:string,args:CalldataEncodable[],before:Snapsho
  throw new Error(`No authoritative state verifier for ${name}`);
 }
 async function verifyFinalizedState(name:string,args:CalldataEncodable[],before:Snapshot){for(let attempt=0;attempt<8;attempt++){try{if(await postcondition(name,args,before))return}catch{}await new Promise(resolve=>setTimeout(resolve,1000))}throw new Error(`Transaction finalized but ${name} did not produce the required authoritative contract state`)}
-export async function write(functionName:string,args:CalldataEncodable[]){if(!ADDRESS)throw new Error("Contract address is not configured");const provider=(window as unknown as {ethereum?:unknown}).ethereum;if(!provider)throw new Error("Connect an injected wallet to continue");const before=await beforeWrite(functionName,args);const accounts=await (provider as {request:(x:{method:string})=>Promise<string[]>}).request({method:"eth_requestAccounts"});const wallet=createClient({chain:studionet,account:accounts[0] as `0x${string}`});const hash=await wallet.writeContract({address:ADDRESS,functionName,args,value:0n});await wallet.waitForTransactionReceipt({hash:hash as TransactionHash,status:TransactionStatus.FINALIZED});await verifyFinalizedState(functionName,args,before);return hash;}
+export async function write(functionName:string,args:CalldataEncodable[]){if(!ADDRESS)throw new Error("Contract address is not configured");const provider=injectedProvider();const before=await beforeWrite(functionName,args);const account=await requestAccount(provider);const wallet=createClient({chain:studionet,account,provider});await connectStudionet(provider,()=>wallet.connect("studionet"));const hash=await wallet.writeContract({address:ADDRESS,functionName,args,value:0n});await wallet.waitForTransactionReceipt({hash:hash as TransactionHash,status:TransactionStatus.FINALIZED});await verifyFinalizedState(functionName,args,before);return hash;}

@@ -38,7 +38,7 @@ python3 -m pytest tests -q
 GENVM_VERSION=v0.2.16 genvm-lint check contracts/harborlight.py
 ```
 
-The supported network is GenLayer Studionet (chain `61999`). No private key or server signer is stored by the application; browser writes use an injected wallet and all reads target finalized state.
+The supported network is GenLayer Studionet (chain `61999`, hexadecimal `0xf22f`). No private key or server signer is stored by the application. Browser writes use MetaMask through the GenLayer wallet Snap: before every write the console connects the SDK to `studionet`, adds or switches the wallet network when necessary, and independently confirms `eth_chainId` is `0xf22f`. A wallet still reporting Base Sepolia or any other chain is rejected before transaction submission. All reads target finalized state.
 
 ## Live deployment
 
